@@ -61,23 +61,26 @@ export default function Skills() {
             </h3>
             <ul className="flex flex-col gap-3">
               {cat.skills.map((skill, si) => (
-                <motion.li
+                <li
                   key={skill}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: ci * 0.1 + si * 0.04,
-                    duration: 0.5,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
                   className="flex items-center gap-3 group"
                 >
-                  <span className="w-1 h-1 rounded-full bg-[#3a3a3a] group-hover:bg-[#c8f000] transition-colors flex-shrink-0" />
-                  <span className="font-sans text-[#f0ebe3] text-sm group-hover:text-[#c8f000] transition-colors">
-                    {skill}
-                  </span>
-                </motion.li>
+                  <motion.div
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      delay: ci * 0.1 + si * 0.04,
+                      duration: 0.5,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  >
+                    <span className="w-1 h-1 rounded-full bg-[#3a3a3a] group-hover:bg-[#c8f000] transition-colors flex-shrink-0" />
+                    <span className="font-sans text-[#f0ebe3] text-sm group-hover:text-[#c8f000] transition-colors">
+                      {skill}
+                    </span>
+                  </motion.div>
+                </li>
               ))}
             </ul>
           </motion.div>
