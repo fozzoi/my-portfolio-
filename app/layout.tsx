@@ -1,13 +1,22 @@
 // src/app/layout.tsx
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+// Load our new modern fonts
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ["latin"], 
+  variable: "--font-space" // For headings
+});
+
+const jakarta = Plus_Jakarta_Sans({ 
+  subsets: ["latin"], 
+  variable: "--font-jakarta" // For body text
+});
 
 export const metadata: Metadata = {
-  title: "Dev Portfolio | 10th Standard Mobile Developer",
-  description: "Cross-platform developer, Linux enthusiast, and Android modding expert.",
+  title: "Dev Portfolio | App & Web Developer",
+  description: "Computer Engineering Diploma graduate specializing in high-performance apps.",
 };
 
 export default function RootLayout({
@@ -17,7 +26,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} bg-slate-950 text-slate-50`}>
+      {/* Apply the font variables to the body */}
+      <body className={`${jakarta.variable} ${spaceGrotesk.variable} font-sans bg-white text-neutral-900 antialiased`}>
         {children}
       </body>
     </html>
