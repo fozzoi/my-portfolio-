@@ -5,7 +5,7 @@ import { ArrowUpRight, GitFork, ExternalLink, Mail } from "lucide-react";
 const socials = [
   { label: "GitHub", icon: GitFork, href: "https://github.com/fozzoi" },
   { label: "LinkedIn", icon: ExternalLink, href: "#" },
-  { label: "Email", icon: Mail, href: "mailto:hello@fozzoi.dev" },
+  { label: "Email", icon: Mail, href: "mailto:anuanoopthoppilanu@gmail.com" },
 ];
 
 export default function Contact() {
@@ -37,7 +37,7 @@ export default function Contact() {
           </h2>
 
           <a
-            href="mailto:hello@fozzoi.dev"
+            href="mailto:anuanoopthoppilanu@gmail.com"
             className="group inline-flex items-center gap-2 font-sans text-lg text-[#a09a92] hover:text-[#c8f000] transition-colors"
           >
             hello@fozzoi.dev

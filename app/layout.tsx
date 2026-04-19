@@ -21,7 +21,7 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "fozzoi — App & Web Developer",
+  title: "Anoop - App & Web Developer",
   description:
     "Computer Engineering Diploma graduate building high-performance mobile and web applications. React Native, Next.js, TypeScript.",
 };
