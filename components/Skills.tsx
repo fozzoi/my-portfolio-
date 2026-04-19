@@ -1,66 +1,87 @@
-// src/components/Skills.tsx
 "use client";
 import { motion } from "framer-motion";
 
-const devSkills = [
-  "TypeScript", "JavaScript", "React Native", "Next.js", 
-  "Tailwind CSS", "Expo", "REST APIs", "Git"
-];
-
-const designTools = [
-  "Figma", "Photoshop", "Lightroom", "Microsoft Word", "Microsoft Excel"
+const categories = [
+  {
+    label: "Engineering",
+    skills: [
+      "TypeScript",
+      "JavaScript",
+      "React Native",
+      "Next.js",
+      "Expo",
+      "REST APIs",
+      "Tailwind CSS",
+      "Git",
+    ],
+  },
+  {
+    label: "Design & Tools",
+    skills: [
+      "Figma",
+      "Adobe Photoshop",
+      "Adobe Lightroom",
+      "Microsoft Office",
+    ],
+  },
+  {
+    label: "Environments",
+    skills: ["Linux (Fedora, Manjaro, Ubuntu)", "Android (ADB / Fastboot)", "VS Code", "Node.js"],
+  },
 ];
 
 export default function Skills() {
-  const ease = [0.16, 1, 0.3, 1];
-
   return (
-    <section id="skills" className="py-20 px-6 max-w-4xl mx-auto border-t border-neutral-200">
-      <motion.h2 
-        initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-        className="text-sm font-mono text-neutral-400 uppercase tracking-widest mb-12"
-      >
-        Technical Arsenal
-      </motion.h2>
-      
-      <div className="grid md:grid-cols-2 gap-12">
-        {/* Core Dev Skills */}
-        <div>
-          <h3 className="text-lg font-medium text-neutral-900 mb-6">Engineering Core</h3>
-          <div className="flex flex-wrap gap-2">
-            {devSkills.map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.4, ease }}
-                className="px-4 py-2 rounded-lg bg-white border border-neutral-200 text-neutral-600 text-sm hover:border-cyan-500 hover:text-cyan-700 hover:shadow-sm transition-all"
-              >
-                {skill}
-              </motion.div>
-            ))}
-          </div>
-        </div>
+    <section
+      id="skills"
+      className="scroll-mt-24 py-24 px-8 max-w-7xl mx-auto border-t border-[#1e1e1e]"
+    >
+      <div className="flex items-end justify-between mb-16">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="font-mono text-xs text-[#3a3a3a] uppercase tracking-widest"
+        >
+          02 — Technical Arsenal
+        </motion.p>
+      </div>
 
-        {/* Design & Utility */}
-        <div>
-          <h3 className="text-lg font-medium text-neutral-900 mb-6">Design & Utility</h3>
-          <div className="flex flex-wrap gap-2">
-            {designTools.map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05, duration: 0.4, ease }}
-                className="px-4 py-2 rounded-lg bg-neutral-50 border border-neutral-200 text-neutral-500 text-sm hover:border-neutral-300 hover:text-neutral-800 transition-all"
-              >
-                {skill}
-              </motion.div>
-            ))}
-          </div>
-        </div>
+      <div className="grid md:grid-cols-3 gap-12">
+        {categories.map((cat, ci) => (
+          <motion.div
+            key={cat.label}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: ci * 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <h3 className="font-display font-semibold text-sm text-[#a09a92] uppercase tracking-wider mb-6">
+              {cat.label}
+            </h3>
+            <ul className="flex flex-col gap-3">
+              {cat.skills.map((skill, si) => (
+                <motion.li
+                  key={skill}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: ci * 0.1 + si * 0.04,
+                    duration: 0.5,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="flex items-center gap-3 group"
+                >
+                  <span className="w-1 h-1 rounded-full bg-[#3a3a3a] group-hover:bg-[#c8f000] transition-colors flex-shrink-0" />
+                  <span className="font-sans text-[#f0ebe3] text-sm group-hover:text-[#c8f000] transition-colors">
+                    {skill}
+                  </span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

@@ -1,29 +1,49 @@
-// src/components/Navbar.tsx
 "use client";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <motion.nav 
-      initial={{ y: -100, opacity: 0, x: "-50%" }}
-      animate={{ y: 0, opacity: 1, x: "-50%" }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      // 'fixed', 'left-1/2', and '-translate-x-1/2' center the floating pill
-      className="fixed top-6 left-1/2 z-50 flex items-center gap-6 px-6 py-3 rounded-full bg-white/0 backdrop-blur-md border border-neutral-200 shadow-sm"
+    <motion.nav
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-5 transition-all duration-500 ${
+        scrolled
+          ? "bg-[#0c0c0c]/90 backdrop-blur-md border-b border-[#1e1e1e]"
+          : "bg-transparent"
+      }`}
     >
-      <a href="#" className="text-neutral-900 font-bold tracking-tight mr-2 md:mr-8">
-        DEV
+      <a
+        href="#"
+        className="font-display font-bold text-lg text-[#f0ebe3] tracking-tight hover:text-[#c8f000] transition-colors"
+      >
+        fozzoi
       </a>
-      
-      <div className="hidden md:flex items-center gap-6 text-sm font-medium text-neutral-500">
-        <a href="#skills" className="hover:text-cyan-600 transition-colors">Skills</a>
-        <a href="#projects" className="hover:text-cyan-600 transition-colors">Work</a>
-        <a href="#hobbies" className="hover:text-cyan-600 transition-colors">Interests</a>
+
+      <div className="hidden md:flex items-center gap-8 text-sm font-sans text-[#a09a92]">
+        <a href="#skills" className="hover:text-[#f0ebe3] transition-colors">
+          Skills
+        </a>
+        <a href="#projects" className="hover:text-[#f0ebe3] transition-colors">
+          Work
+        </a>
+        <a href="#about" className="hover:text-[#f0ebe3] transition-colors">
+          About
+        </a>
       </div>
 
-      <a 
-        href="#contact" 
-        className="text-sm font-medium px-4 py-2 bg-neutral-900 text-white rounded-full hover:bg-neutral-800 transition-colors ml-2 md:ml-4"
+      <a
+        href="#contact"
+        className="text-sm font-sans px-5 py-2 rounded-full border border-[#3a3a3a] text-[#f0ebe3] hover:border-[#c8f000] hover:text-[#c8f000] transition-all duration-300"
       >
         Contact
       </a>

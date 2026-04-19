@@ -1,19 +1,22 @@
-/* src/app/globals.css */
 @import "tailwindcss";
 
 @theme {
-  --color-background: #ffffff;
-  --color-surface: #f5f5f5;
-  --color-border: #e5e5e5;
-  
-  /* Map the CSS variables from Next.js to Tailwind font utility classes */
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-space), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+
+  --color-ink: #0c0c0c;
+  --color-surface: #111111;
+  --color-border: #1e1e1e;
+  --color-muted: #3a3a3a;
+  --color-cream: #f0ebe3;
+  --color-warm: #a09a92;
+  --color-acid: #c8f000;
 }
 
 :root {
-  background-color: var(--color-background);
-  color: #171717;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
 }
 
 html {
@@ -22,4 +25,27 @@ html {
 
 body {
   overflow-x: hidden;
+  font-family: var(--font-sans);
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+::selection {
+  background: var(--color-acid);
+  color: var(--color-ink);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-muted);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-warm);
 }

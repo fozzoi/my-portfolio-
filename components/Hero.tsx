@@ -1,60 +1,98 @@
-// src/components/Hero.tsx
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, Quote } from "lucide-react";
+import { ArrowDownRight } from "lucide-react";
+
+const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 export default function Hero() {
-  const ease = [0.16, 1, 0.3, 1];
-
   return (
-    <section className="pt-48 pb-32 px-6 max-w-5xl mx-auto flex flex-col justify-center min-h-[80vh]">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease }}
-        className="mb-8 relative"
-      >
-        <Quote className="text-pink-200 absolute -top-8 -left-10 w-16 h-16 -z-10 rotate-180" />
-        <p className="text-2xl md:text-4xl font-display font-bold text-neutral-800 leading-tight">
-          "Good software is a seamless bridge between complex logic and human intuition."
-        </p>
-      </motion.div>
-
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.1, ease }}
-      >
-        {/* BIG, BOLD, DISPLAY FONT WITH VIBRANT GRADIENT */}
-        <h1 className="text-6xl md:text-8xl font-display font-black tracking-tighter mb-8 text-neutral-900 leading-[1.1]">
-          Hi, I'm <br className="md:hidden" />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500">
-            [Your Name]
-          </span>. <br />
-          App & Web Developer.
-        </h1>
-      </motion.div>
-
-      <motion.p 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2, ease }}
-        className="text-lg md:text-2xl text-neutral-500 max-w-3xl leading-relaxed mb-12 font-medium"
-      >
-        I am a Computer Engineering Diploma graduate specializing in high-performance mobile and web applications. While my core focus is writing robust code, I leverage a strong background in design tools to deliver polished, pixel-perfect experiences.
-      </motion.p>
-
+    <section className="relative min-h-screen flex flex-col justify-between px-8 pt-32 pb-16 max-w-7xl mx-auto">
+      {/* Status badge */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.3, ease }}
+        transition={{ duration: 0.6, ease }}
+        className="flex items-center gap-2 mb-12"
       >
-        <a 
-          href="#projects" 
-          className="inline-flex items-center gap-3 px-8 py-4 bg-neutral-900 text-white font-display font-bold text-lg rounded-full hover:scale-105 hover:bg-gradient-to-r hover:from-cyan-500 hover:to-purple-600 transition-all duration-300 shadow-xl shadow-purple-500/20"
+        <span className="w-2 h-2 rounded-full bg-[#c8f000] animate-pulse" />
+        <span className="font-mono text-xs text-[#a09a92] tracking-widest uppercase">
+          Available for projects
+        </span>
+      </motion.div>
+
+      {/* Main heading */}
+      <div className="flex-1 flex flex-col justify-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.1, ease }}
         >
-          Explore Projects <ArrowRight size={20} />
-        </a>
+          <h1 className="font-display font-extrabold text-[clamp(3.5rem,10vw,9rem)] leading-[0.92] tracking-tight text-[#f0ebe3] mb-8">
+            App &amp; Web<br />
+            <span className="text-[#c8f000]">Developer</span>
+            <span className="text-[#3a3a3a]">.</span>
+          </h1>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25, ease }}
+          className="font-sans text-lg text-[#a09a92] max-w-xl leading-relaxed mb-12"
+        >
+          Computer Engineering Diploma graduate specializing in{" "}
+          <span className="text-[#f0ebe3]">React Native</span> and{" "}
+          <span className="text-[#f0ebe3]">Next.js</span>. I bridge complex
+          logic with clean, pixel-perfect interfaces — on every platform.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35, ease }}
+          className="flex flex-wrap gap-4"
+        >
+          <a
+            href="#projects"
+            className="group inline-flex items-center gap-2 px-7 py-3.5 bg-[#c8f000] text-[#0c0c0c] font-display font-bold text-sm rounded-full hover:bg-[#d4ff00] transition-all duration-200"
+          >
+            View Work
+            <ArrowDownRight
+              size={16}
+              className="group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-transform"
+            />
+          </a>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-7 py-3.5 border border-[#3a3a3a] text-[#f0ebe3] font-sans text-sm rounded-full hover:border-[#a09a92] transition-colors"
+          >
+            Get in touch
+          </a>
+        </motion.div>
+      </div>
+
+      {/* Bottom stat row */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.6, ease }}
+        className="flex flex-wrap gap-x-12 gap-y-4 pt-16 border-t border-[#1e1e1e] mt-12"
+      >
+        {[
+          { label: "Projects shipped", value: "5+" },
+          { label: "Tech stack", value: "TypeScript · React Native · Next.js" },
+          { label: "Based in", value: "Kerala, India" },
+          { label: "Open to", value: "Remote / Freelance" },
+        ].map((stat) => (
+          <div key={stat.label} className="flex flex-col gap-1">
+            <span className="font-mono text-xs text-[#3a3a3a] uppercase tracking-widest">
+              {stat.label}
+            </span>
+            <span className="font-sans text-sm text-[#a09a92]">
+              {stat.value}
+            </span>
+          </div>
+        ))}
       </motion.div>
     </section>
   );

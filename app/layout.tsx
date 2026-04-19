@@ -1,22 +1,29 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
-import { Space_Grotesk, Plus_Jakarta_Sans } from "next/font/google";
+import { Bricolage_Grotesque, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 
-// Load our new modern fonts
-const spaceGrotesk = Space_Grotesk({ 
-  subsets: ["latin"], 
-  variable: "--font-space" // For headings
+const bricolage = Bricolage_Grotesque({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
-const jakarta = Plus_Jakarta_Sans({ 
-  subsets: ["latin"], 
-  variable: "--font-jakarta" // For body text
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["300", "400", "500"],
+});
+
+const dmMono = DM_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["300", "400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "Dev Portfolio | App & Web Developer",
-  description: "Computer Engineering Diploma graduate specializing in high-performance apps.",
+  title: "fozzoi — App & Web Developer",
+  description:
+    "Computer Engineering Diploma graduate building high-performance mobile and web applications. React Native, Next.js, TypeScript.",
 };
 
 export default function RootLayout({
@@ -26,8 +33,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      {/* Apply the font variables to the body */}
-      <body className={`${jakarta.variable} ${spaceGrotesk.variable} font-sans bg-white text-neutral-900 antialiased`}>
+      <body
+        className={`${bricolage.variable} ${dmSans.variable} ${dmMono.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
