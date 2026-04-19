@@ -99,9 +99,8 @@ export default function ProjectPage({ project }: { project: Project }) {
                     alt={`${project.title} screenshot ${i + 1}`}
                     width={400}
                     height={860}
-                    className="w-full h-auto block"
+                    className="w-full h-auto block object-cover"
                     style={{ aspectRatio: "9/19.5" }}
-                    objectFit="cover"
                   />
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-[#c8f000]/0 group-hover:bg-[#c8f000]/5 transition-colors duration-300 flex items-center justify-center">

@@ -77,7 +77,7 @@ export const projects: Project[] = [
       "/images/watcher/Screenshot_20260419-125603.png",
       "/images/watcher/Screenshot_20260419-125625.png",
     ],
-    coverImage: "/images/watcher/Screenshot_20260419-125511.png",
+    coverImage: "/images/watcher/Screenshot_20260419-125525.png",
   },
 ];
 

@@ -18,7 +18,7 @@ const hobbies = [
 ];
 
 export default function Hobbies() {
-  const ease = [0.16, 1, 0.3, 1];
+  const ease = [0.16, 1, 0.3, 1] as const;
 
   return (
     <section className="py-20 px-6 max-w-4xl mx-auto border-t border-neutral-200">

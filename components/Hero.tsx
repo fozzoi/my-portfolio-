@@ -2,7 +2,8 @@
 import { motion } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
 
-const ease = [0.16, 1, 0.3, 1] as [number, number, number, number];
+// Inside export default function Hero()
+const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function Hero() {
   return (
